@@ -10,6 +10,10 @@ import java.io.IOException;
 
 public class CloseableUtil {
 
+    private CloseableUtil() {
+    }
+
+
     public static void close(Closeable... closeables) {
         for (int i = 0; i < closeables.length; i++) {
             close(closeables[i]);
