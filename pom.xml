@@ -16,7 +16,6 @@
         <module>ab-wechat</module>
         <module>ab-alibaba</module>
         <module>ab-common-web</module>
-        <module>admin</module>
         <module>ab-admin</module>
     </modules>
 
