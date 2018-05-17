@@ -6,7 +6,4 @@ package com.albenyuan.web.controller;
  */
 public class BaseController {
 
-
-
-
 }

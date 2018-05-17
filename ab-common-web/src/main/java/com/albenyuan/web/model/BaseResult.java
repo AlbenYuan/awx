@@ -1,10 +1,5 @@
 package com.albenyuan.web.model;
 
-/**
- * @Author Alben Yuan
- * @Date 2018-05-05 21:46
- */
-
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -12,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * @Author Alben Yuan
- * @Date 2018-03-14 16:43
+ * @Date 2018-05-05 21:46
  */
 
 public class BaseResult<T> implements Serializable {
