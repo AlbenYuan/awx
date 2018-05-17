@@ -49,7 +49,6 @@ public class ReflectionUtil {
     }
 
     private ReflectionUtil() {
-        throw new RuntimeException("");
     }
 
 }

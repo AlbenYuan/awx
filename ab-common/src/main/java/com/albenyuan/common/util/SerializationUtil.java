@@ -1,8 +1,11 @@
 package com.albenyuan.common.util;
 
-import com.albenyuan.common.util.CloseableUtil;
+import com.albenyuan.common.entity.TreeEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * @Author Alben Yuan
@@ -10,6 +13,8 @@ import java.io.*;
  */
 
 public final class SerializationUtil {
+
+    private static final Logger logger = LoggerFactory.getLogger(SerializationUtil.class);
 
     private SerializationUtil() {
     }
@@ -47,24 +52,46 @@ public final class SerializationUtil {
      * @param bytes a serialized object
      * @return the result of deserializing the bytes
      */
-    public static Object unserialize(byte[] bytes) {
-        if (bytes == null) {
-            return null;
-        }
-        Object object;
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-        ObjectInputStream objectInputStream = null;
-        try {
-            objectInputStream = new ObjectInputStream(byteArrayInputStream);
-            object = objectInputStream.readObject();
-        } catch (IOException ex) {
-            throw new IllegalArgumentException("Failed to deserialize object", ex);
-        } catch (ClassNotFoundException ex) {
-            throw new IllegalStateException("Failed to deserialize object type", ex);
-        } finally {
-            CloseableUtil.close(objectInputStream, byteArrayInputStream);
+    public static Object deserialize(byte[] bytes) {
+        Object object = null;
+        if (null != bytes) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+            ObjectInputStream objectInputStream = null;
+            try {
+                objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                object = objectInputStream.readObject();
+            } catch (IOException ex) {
+                throw new IllegalArgumentException("Failed to deserialize object", ex);
+            } catch (ClassNotFoundException ex) {
+                throw new IllegalStateException("Failed to deserialize object type", ex);
+            } finally {
+                CloseableUtil.close(objectInputStream, byteArrayInputStream);
+            }
         }
         return object;
+    }
+
+    public static <T> T deserializeT(byte[] bytes) {
+        T t = null;
+        try {
+            t = (T) deserialize(bytes);
+        } catch (Exception e) {
+            logger.debug("error:{}", e);
+        }
+        return t;
+    }
+
+    public static void main(String[] args) {
+
+        TreeEntity entity = new TreeEntity();
+        entity.setId("id");
+        entity.setParentId("parentId");
+        byte[] bytes = serialize(entity);
+        logger.info("bytes:{}", Arrays.toString(bytes));
+
+        TreeEntity treeEntity = deserializeT(bytes);
+        logger.info("deserialize:{}", deserialize(bytes));
+        logger.info("deserialize:{}", treeEntity);
     }
 
 }
