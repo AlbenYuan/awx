@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.Charset;
-import java.security.MessageDigest;
 
 import com.albenyuan.common.io.Charsets;
 
@@ -23,15 +22,7 @@ public class MD5Util {
     }
 
     public static byte[] encode2Bytes(byte[] bytes) {
-        if (bytes != null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bytes);
-                return messageDigest.digest();
-            } catch (Exception e) {
-            }
-        }
-        return null;
+        return MessageDigestUtil.encode(bytes, MessageDigestUtil.Algorithm.MD5);
     }
 
     public static byte[] encode2Bytes(String text, String charset) {

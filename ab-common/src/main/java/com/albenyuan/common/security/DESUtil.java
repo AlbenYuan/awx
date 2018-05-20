@@ -7,12 +7,6 @@ package com.albenyuan.common.security;
  * @Author Alben Yuan
  * @Date 2018-01-17 22:52
  */
-
-
-/**
- * @author 宋立君
- * @date 2014年07月03日
- */
 public class DESUtil {
 
     private DESUtil() {
