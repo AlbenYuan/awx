@@ -9,6 +9,7 @@ import java.io.File;
 
 public abstract class LineReader extends AbstractFileReader {
 
+
     public LineReader(String path) {
         super(path);
     }

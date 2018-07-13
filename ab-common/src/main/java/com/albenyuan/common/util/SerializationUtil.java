@@ -1,11 +1,9 @@
 package com.albenyuan.common.util;
 
-import com.albenyuan.common.entity.TreeEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.util.Arrays;
 
 /**
  * @Author Alben Yuan
@@ -71,7 +69,7 @@ public final class SerializationUtil {
         return object;
     }
 
-    public static <T> T deserializeT(byte[] bytes) {
+    public static <T> T deserializeT(byte[] bytes, Class<T> clazz) {
         T t = null;
         try {
             t = (T) deserialize(bytes);
@@ -79,19 +77,6 @@ public final class SerializationUtil {
             logger.debug("error:{}", e);
         }
         return t;
-    }
-
-    public static void main(String[] args) {
-
-        TreeEntity entity = new TreeEntity();
-        entity.setId("id");
-        entity.setParentId("parentId");
-        byte[] bytes = serialize(entity);
-        logger.info("bytes:{}", Arrays.toString(bytes));
-
-        TreeEntity treeEntity = deserializeT(bytes);
-        logger.info("deserialize:{}", deserialize(bytes));
-        logger.info("deserialize:{}", treeEntity);
     }
 
 }
