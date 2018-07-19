@@ -2,6 +2,7 @@ package com.albenyuan.admin.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,17 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class PublicController {
 
-    private int start = 0;
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
-    private ServletContext servletContext;
+    private int start = 0;
 
     @Resource
     public void setServletContext(ServletContext servletContext) {
-        this.servletContext = servletContext;
-        this.start = this.servletContext.getContextPath().length();
+        start = servletContext.getContextPath().length();
     }
-
-    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @RequestMapping(value = {"/**/*.htm"})
     public String htm(HttpServletRequest request) {
