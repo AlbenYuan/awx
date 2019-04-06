@@ -4,7 +4,7 @@ import com.albenyuan.admin.common.AccessToken;
 import com.albenyuan.admin.common.Authentication;
 import com.albenyuan.admin.form.Login;
 import com.albenyuan.admin.service.UserService;
-import com.albenyuan.web.model.BaseResult;
+import com.albenyuan.web.core.BaseResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

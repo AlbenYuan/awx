@@ -5,3 +5,7 @@
 target
 .settings
 .project
+logs
+*/logs
+*.log
+

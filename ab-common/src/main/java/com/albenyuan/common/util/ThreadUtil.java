@@ -12,9 +12,7 @@ public class ThreadUtil {
     private static final Logger logger = LoggerFactory.getLogger(ThreadUtil.class);
 
 
-    private ThreadUtil() {
-
-    }
+    private ThreadUtil() {}
 
     public static void join(Thread thread) {
         if (null != thread) {

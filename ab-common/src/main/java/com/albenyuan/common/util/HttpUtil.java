@@ -56,8 +56,8 @@ public final class HttpUtil {
 
     private static CloseableHttpClient getClient(boolean isHttps) {
         return isHttps
-                ? HttpClients.createDefault()
-//                ? useTrustingTrustManager()
+//                ? HttpClients.createDefault()
+                ? useTrustingTrustManager()
                 : HttpClients.createDefault();
     }
 

@@ -1,7 +1,7 @@
 package com.albenyuan.admin.controller;
 
 import com.albenyuan.web.controller.BaseController;
-import com.albenyuan.web.model.BaseResult;
+import com.albenyuan.web.core.BaseResult;
 import com.google.common.collect.ImmutableMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

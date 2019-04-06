@@ -1,6 +1,6 @@
 package com.albenyuan.web.service.impl;
 
-import com.albenyuan.core.PageResult;
+import com.albenyuan.core.Page;
 import com.albenyuan.entity.StateEntity;
 import com.albenyuan.exception.DataNotFountException;
 import com.albenyuan.repository.StateRepository;
@@ -35,7 +35,7 @@ public abstract class StateServiceImpl<T extends StateEntity<ID>, ID extends Ser
     }
 
     @Override
-    public PageResult<T> findPage(int page, int limit) {
+    public Page<T> findPage(int page, int limit) {
         return null;
     }
 }

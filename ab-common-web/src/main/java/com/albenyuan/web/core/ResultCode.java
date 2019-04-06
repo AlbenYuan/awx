@@ -1,10 +1,10 @@
-package com.albenyuan.web.model;
+package com.albenyuan.web.core;
 
 /**
  * @Author Alben Yuan
  * @Date 2018-05-05 21:48
  */
-public enum ResultCode {
+public enum ResultCode implements ErrorCode {
     SUCCESS(0, ""),
     ERROR(-1, "系统异常"),
     REQUEST_PARAM_MISSING(1003, "参数缺失"),

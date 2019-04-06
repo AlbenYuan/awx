@@ -1,4 +1,4 @@
-package com.albenyuan.web.model;
+package com.albenyuan.web.core;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,14 +23,14 @@ public class BaseResult<T> implements Serializable {
     private Integer code;
 
     public static BaseResult success(Object data) {
-        return new BaseResult(data);
+        return new BaseResult<>(data);
     }
 
     public static BaseResult success() {
         return success(null);
     }
 
-    public static BaseResult failure(ResultCode resultCode) {
+    public static BaseResult failure(ErrorCode resultCode) {
         return new BaseResult(resultCode);
     }
 
@@ -38,13 +38,13 @@ public class BaseResult<T> implements Serializable {
         this.data = data;
     }
 
-    private BaseResult(ResultCode resultCode) {
-        if (null == resultCode) {
-            resultCode = ResultCode.ERROR;
+    private BaseResult(ErrorCode errorCode) {
+        if (null == errorCode) {
+            errorCode = ResultCode.ERROR;
         }
         this.success = false;
-        this.code = resultCode.getCode();
-        this.message = resultCode.getMessage();
+        this.code = errorCode.getCode();
+        this.message = errorCode.getMessage();
     }
 
     public Boolean getSuccess() {

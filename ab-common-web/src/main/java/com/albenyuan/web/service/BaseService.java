@@ -1,6 +1,6 @@
 package com.albenyuan.web.service;
 
-import com.albenyuan.core.PageResult;
+import com.albenyuan.core.Page;
 import com.albenyuan.entity.BaseEntity;
 import com.albenyuan.exception.DataNotFountException;
 
@@ -35,7 +35,7 @@ public interface BaseService<T extends BaseEntity<ID>, ID extends Serializable> 
 
     List<T> findByIds(Iterable<ID> ids);
 
-    PageResult<T> findPage(int page, int limit);
+    Page<T> findPage(int page, int limit);
 
 
 }

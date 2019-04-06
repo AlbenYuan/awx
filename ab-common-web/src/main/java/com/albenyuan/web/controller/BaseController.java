@@ -1,6 +1,9 @@
 package com.albenyuan.web.controller;
 
-import org.springframework.http.MediaType;
+
+import com.albenyuan.web.core.BaseResult;
+import com.albenyuan.web.core.ErrorCode;
+import com.albenyuan.web.core.ResultCode;
 
 /**
  * @Author Alben Yuan
@@ -9,7 +12,20 @@ import org.springframework.http.MediaType;
 public class BaseController {
 
 
-    public static void main(String[] args) {
-
+    protected static BaseResult success() {
+        return BaseResult.success();
     }
+
+    protected static BaseResult success(Object data) {
+        return BaseResult.success(data);
+    }
+
+    protected static BaseResult failure() {
+        return failure(ResultCode.ERROR);
+    }
+
+    protected static BaseResult failure(ErrorCode code) {
+        return BaseResult.failure(code);
+    }
+
 }
